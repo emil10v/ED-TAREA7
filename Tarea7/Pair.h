@@ -16,19 +16,23 @@ public:
 		this->key = key;
 		this->value = value;
 	}
-	bool operator==(const Pair<K, V>& other) {
+	bool operator==(const Pair<K, V>& other) const {
 		return key == other.key;
 	}
-	bool operator<(const Pair<K, V>& other) {
-		return key < other.key;
+
+	bool operator<(const Pair<K, V>&other) const {
+			return key < other.key;
 	}
-	bool operator<=(const Pair<K, V>& other) {
+
+	bool operator<=(const Pair<K, V>&other) const {
 		return key <= other.key;
 	}
-	bool operator>(const Pair<K, V>& other) {
+
+	bool operator>(const Pair<K, V>&other) const {
 		return key > other.key;
 	}
-	bool operator>=(const Pair<K, V>& other) {
+
+	bool operator>=(const Pair<K, V>&other) const {
 		return key >= other.key;
 	}
 	friend ostream& operator<<(ostream& os, const Pair<K, V>& p) {

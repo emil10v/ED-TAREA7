@@ -4,7 +4,8 @@
 #include "Dictionary.h"
 #include "BSTree.h"
 #include "Pair.h"
-#include "List.h"
+#include "ArrayList.h"
+
 
 using std::runtime_error;
 using std::cout;
@@ -69,7 +70,7 @@ public:
 		for (elements->goToStart(); !elements->atEnd(); elements->next()) {
 			values->append(elements->getElement().value);
 		}
-		delete elements
+		delete elements;
 		return values;
 	}
 

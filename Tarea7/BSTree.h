@@ -4,6 +4,10 @@
 #include "BSTNode.h"
 
 using std::runtime_error;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
 
 template<typename E>
 class BSTree {
@@ -44,11 +48,11 @@ private:
 			return current;
 		}
 		*result = current->element;
-		if (current->childrenCount() == 0) {
+		if (current->ChildrenCount() == 0) {
 			delete current;
 			return nullptr;
 		}
-		if (current->childrenCount() == 1) {
+		if (current->ChildrenCount() == 1) {
 			BSTNode<E>* child = current->onlyChild();
 			delete current;
 			return child;
@@ -88,11 +92,9 @@ private:
 	void printAux(BSTNode<E>* current) {
 		if (current == nullptr)
 			return;
-		cout << "[" << current > element << ", ";
 		printAux(current->left);
-		cout << ", "
-			printAux(current->right);
-		cout << "]";
+		cout << current->element << " ";
+		printAux(current->right);
 	}
 
 public:

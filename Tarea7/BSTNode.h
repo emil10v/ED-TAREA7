@@ -8,7 +8,7 @@ public:
 	BSTNode<E>* right;
 
 	BSTNode(E element) {
-		this->element;
+		this->element = element;
 		right = left = nullptr;
 	}
 	int ChildrenCount() {
