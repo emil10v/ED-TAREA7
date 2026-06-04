@@ -19,7 +19,7 @@ private:
 		if (element < current->element)
 			current->left = insertAux(current->left, element);
 		else
-			current->right = insertAux(current->left, element);
+			current->right = insertAux(current->right, element);
 		return current;
 	}
 	E findAux(BSTNode<E>* current, E element) {
@@ -27,7 +27,7 @@ private:
 			throw runtime_error("Elemento no encontrado.");
 		if (current->element == element)
 			return current->element;
-		if (current->element < element)
+		if (element < current->element)
 			return findAux(current->left, element);
 		else
 			return findAux(current->right, element);
@@ -65,6 +65,7 @@ private:
 		}
 		return succesor;
 	}
+
 	void swap(BSTNode<E>* n1, BSTNode<E>* n2) {
 		E temp = n1->element;
 		n1->element = n2->element;
@@ -77,7 +78,7 @@ private:
 		clearAux(current->right);
 		delete current;
 	}
-	void getElementsAux(BSTNode<E>* current, List<E>elements) {
+	void getElementsAux(BSTNode<E>* current, List<E>* elements) {
 		if (current == nullptr)
 			return;
 		getElementsAux(current->left, elements);
@@ -120,7 +121,7 @@ public:
 	}
 	E remove(E element) {
 		E result;
-		BSTNode root = removeAux(root, element, &result);
+		root = removeAux(root, element, &result);
 		size--;
 		return result;
 	}
@@ -143,7 +144,7 @@ public:
 	}
 	List<E>* getElements() {
 		List<E>* elements = new DLinkedList<E>;
-		return getElementsAux(root, elements);
+		getElementsAux(root, elements);
 		return elements;
 	}
 	int getSize() {
